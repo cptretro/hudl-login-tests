@@ -9,7 +9,10 @@
     "format": "prettier --write ."
   },
   "lint-staged": {
-    "*.ts": ["eslint --fix", "prettier --write"],
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ],
     "*.{js,json,md,yml}": "prettier --write"
   },
   "keywords": [],

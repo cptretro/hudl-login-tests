@@ -4,7 +4,6 @@ import { env } from "../src/config/env";
 test.describe("Login: negative scenarios", () => {
   test("invalid email format shows a validation message", async ({
     loginPage,
-    page,
   }) => {
     await loginPage.emailInput.fill("not-an-email");
     await loginPage.continueButton.click();

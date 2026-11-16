@@ -20,11 +20,13 @@ test.describe("Login: navigation", () => {
     page,
   }) => {
     await page.route(/accounts\.google\.com/, (route) => route.abort());
-    const googleRequest = page.waitForRequest(/accounts\.google\.com/);
 
-    await loginPage.googleLogin.click();
+    const [request] = await Promise.all([
+      page.waitForRequest(/accounts\.google\.com/),
+      loginPage.googleLogin.click(),
+    ]);
 
-    await googleRequest;
+    expect(request.url()).toContain("accounts.google.com");
   });
 
   test("Continue with Facebook starts Facebook sign-in", async ({
@@ -32,11 +34,13 @@ test.describe("Login: navigation", () => {
     page,
   }) => {
     await page.route(/facebook\.com/, (route) => route.abort());
-    const facebookRequest = page.waitForRequest(/facebook\.com/);
 
-    await loginPage.facebookLogin.click();
+    const [request] = await Promise.all([
+      page.waitForRequest(/facebook\.com/),
+      loginPage.facebookLogin.click(),
+    ]);
 
-    await facebookRequest;
+    expect(request.url()).toContain("facebook.com");
   });
 
   test("Continue with Apple starts Apple sign-in", async ({
@@ -44,11 +48,13 @@ test.describe("Login: navigation", () => {
     page,
   }) => {
     await page.route(/appleid\.apple\.com/, (route) => route.abort());
-    const appleRequest = page.waitForRequest(/appleid\.apple\.com/);
 
-    await loginPage.appleLogin.click();
+    const [request] = await Promise.all([
+      page.waitForRequest(/appleid\.apple\.com/),
+      loginPage.appleLogin.click(),
+    ]);
 
-    await appleRequest;
+    expect(request.url()).toContain("appleid.apple.com");
   });
 });
 

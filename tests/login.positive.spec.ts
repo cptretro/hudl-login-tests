@@ -30,7 +30,7 @@ test.describe("Login: positive scenarios", () => {
     await expect(page).toHaveURL(/home/);
   });
 
-  test("can login after wrong password", async ({ loginPage, page, }) => {
+  test("can login after wrong password", async ({ loginPage, page }) => {
     await loginPage.enterEmail(env.username);
 
     await loginPage.passwordInput.fill("definitely-wrong-password");

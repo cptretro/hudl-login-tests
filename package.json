@@ -3,7 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write ."
+  },
+  "lint-staged": {
+    "*.ts": ["eslint --fix", "prettier --write"],
+    "*.{js,json,md,yml}": "prettier --write"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -15,9 +23,10 @@
     "dotenv": "^18.0.10",
     "eslint": "^10.15.0",
     "eslint-plugin-playwright": "^2.12.2",
+    "globals": "^17.14.0",
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
     "prettier": "^3.10.1",
-    "typescript-eslint": "^8.36.0"
+    "typescript-eslint": "^8.73.0"
   }
 }

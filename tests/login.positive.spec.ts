@@ -1,7 +1,7 @@
 import { test, expect } from "../src/fixtures";
 import { env } from "../src/config/env";
 
-test.describe("Login: valid sign in", () => {
+test.describe("Login: positive scenarios", () => {
   test("valid credentials land on the home page @smoke", async ({
     loginPage,
     page,
@@ -26,6 +26,19 @@ test.describe("Login: valid sign in", () => {
 
     await loginPage.passwordInput.fill(env.password);
     await loginPage.passwordInput.press("Enter");
+
+    await expect(page).toHaveURL(/home/);
+  });
+
+  test("can login after wrong password", async ({ loginPage, page, }) => {
+    await loginPage.enterEmail(env.username);
+
+    await loginPage.passwordInput.fill("definitely-wrong-password");
+    await loginPage.continueButton.click();
+    await expect(loginPage.invalidPassword).toBeVisible();
+
+    await loginPage.passwordInput.fill(env.password);
+    await loginPage.continueButton.click();
 
     await expect(page).toHaveURL(/home/);
   });

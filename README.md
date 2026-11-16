@@ -40,16 +40,16 @@ BASE_URL=https://www.hudl.com
 
 ```bash
 # All tests
-npm test
+npx playwright test
 
 # Headed mode (watch the browser)
-npm run test:headed
-
-# Smoke tests only (tests tagged @smoke)
-npm run test:smoke
+npx playwright test --headed
 
 # One file
 npx playwright test tests/login/login.positive.spec.ts
+
+# By tag
+npx playwright test --grep @smoke
 
 # One browser
 npx playwright test --project=chromium
@@ -67,18 +67,15 @@ npx playwright show-report
 - **Third-party sign-in** is verified up to the hand-off. The provider pages are not automated.
 - **Real credentials are required** for the successful login tests. Logins from CI servers may be challenged by bot detection, which can cause failures unrelated to the code.
 
-## Lint, Format and Type Check
+## Lint and Format
 
 ```bash
 # Lint
-npm run lint
+npx eslint .
 
-# Lint and auto-fix
-npm run lint:fix
+# Check formatting
+npx prettier --check .
 
-# Format
-npm run format
-
-# Type check
-npm run typecheck
+# Fix formatting
+npx prettier --write .
 ```

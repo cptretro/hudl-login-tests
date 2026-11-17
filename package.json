@@ -11,6 +11,8 @@
     "test": "playwright test",
     "test:headed": "playwright test --headed",
     "test:smoke": "playwright test --grep @smoke",
+    "test:negative": "playwright test --grep @negative",
+    "test:navigation": "playwright test --grep @navigation",
     "typecheck": "tsc --noEmit"
   },
   "lint-staged": {

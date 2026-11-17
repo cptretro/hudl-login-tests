@@ -1,7 +1,7 @@
 import { test, expect } from "../src/fixtures";
 import { env } from "../src/config/env";
 
-test.describe("Login: negative scenarios", () => {
+test.describe("Login: negative scenarios @negative", () => {
   test("invalid email format shows a validation message", async ({
     loginPage,
   }) => {

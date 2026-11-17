@@ -8,7 +8,13 @@ function required(name: string): string {
 }
 
 export const env = {
-  baseUrl: required("BASE_URL"),
-  username: required("HUDL_USERNAME"),
-  password: required("HUDL_PASSWORD"),
+  get baseUrl() {
+    return required("BASE_URL");
+  },
+  get username() {
+    return required("HUDL_USERNAME");
+  },
+  get password() {
+    return required("HUDL_PASSWORD");
+  },
 };

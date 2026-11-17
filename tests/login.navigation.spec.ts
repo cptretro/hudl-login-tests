@@ -1,7 +1,7 @@
 import { test, expect } from "../src/fixtures";
 import { env } from "../src/config/env";
 
-test.describe("Login: navigation", () => {
+test.describe("Login: navigation @navigation", () => {
   test("create account link leads to the sign-up flow", async ({
     loginPage,
     page,
@@ -58,7 +58,7 @@ test.describe("Login: navigation", () => {
   });
 });
 
-test.describe("Login: password step", () => {
+test.describe("Login: password step @navigation", () => {
   test.beforeEach(async ({ loginPage }) => {
     await loginPage.enterEmail(env.username);
   });

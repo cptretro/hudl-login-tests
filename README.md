@@ -50,11 +50,20 @@ npm run test:headed
 # Smoke tests only (tests tagged @smoke)
 npm run test:smoke
 
+# Negative scenarios only (tests tagged @negative)
+npm run test:negative
+
+# Navigation tests only (tests tagged @navigation)
+npm run test:navigation
+
 # One file
 npx playwright test tests/login/login.positive.spec.ts
 
 # One browser
 npx playwright test --project=chromium
+
+# Choose the number of parallel workers
+npm test -- --workers=2
 
 # Interactive UI mode
 npx playwright test --ui

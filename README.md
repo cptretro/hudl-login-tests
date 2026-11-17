@@ -36,6 +36,8 @@ HUDL_PASSWORD="your-test-account-password"
 BASE_URL=https://www.hudl.com
 ```
 
+Only the login tests that sign in need credentials. Navigation and validation tests run without them.
+
 ## Running Tests
 
 ```bash
